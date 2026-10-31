@@ -139,7 +139,12 @@ p, ul, ol { margin: 0 0 var(--space-md); }
 
 /* ---------- hero ---------- */
 .hero { background: var(--color-primary); color: #CBD5E1; position: relative; overflow: hidden; }
-.hero::after { /* fine wafer-grid texture: the subject's own geometry, kept faint */
+.hero::before { /* wafer motif (source/make_art.py), kept faint and off to the right */
+  content: ""; position: absolute; right: -180px; top: 50%; width: 760px; height: 600px; transform: translateY(-50%);
+  background: url(../img/art/hero-wafer.svg) no-repeat center / contain; opacity: .35; pointer-events: none;
+}
+@media (max-width: 767px) { .hero::before { right: -320px; opacity: .3; } }
+.hero::after { /* fine grid texture */
   content: ""; position: absolute; inset: 0; pointer-events: none; opacity: .5;
   background-image: linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
   background-size: 28px 28px; mask-image: radial-gradient(ellipse at 80% 20%, #000 0%, transparent 70%);
@@ -313,6 +318,8 @@ body.has-bookbar { padding-bottom: 76px; }
 .radios { display: grid; gap: 8px; border: 0; padding: 0; margin: 0; }
 .radios label { display: flex; align-items: center; gap: 10px; min-height: 44px; padding: 8px 12px; border: 1px solid var(--color-border); border-radius: var(--radius); background: var(--color-card); cursor: pointer; font-weight: 500; color: var(--color-foreground); }
 .radios input { width: 20px; height: 20px; min-height: 0; accent-color: var(--color-accent); }
+.field-error { margin: 2px 0 0; font-size: .9375rem; font-weight: 500; color: #B42318; }
+.field input[aria-invalid="true"] { border-color: #B42318; }
 .form-status { padding: 12px 14px; border-radius: var(--radius); background: #E0F2FE; color: #075985; }
 
 .contact-list { list-style: none; padding: 0; margin: 0 0 var(--space-md); display: grid; gap: var(--space-sm); }
@@ -402,6 +409,11 @@ body.has-bookbar { padding-bottom: 76px; }
   .steps { grid-template-columns: repeat(4, 1fr); gap: var(--space-lg); }
   .steps li:not(:last-child)::after { content: ""; position: absolute; right: -24px; top: 38px; width: 24px; height: 2px; background: #CBD5E1; }
 }
+
+/* ---------- generated art ---------- */
+.card-art { width: calc(100% + 2 * var(--space-lg)); max-width: none; margin: calc(-1 * var(--space-lg)) calc(-1 * var(--space-lg)) var(--space-sm); aspect-ratio: 16 / 9; object-fit: cover; border-radius: 11px 11px 0 0; background: var(--color-primary); }
+.award-line--emblem { align-items: center; gap: 14px; }
+.award-line--emblem .emblem { width: 72px; height: 72px; flex: none; }
 
 /* ---------- design-prototype build (python source/build.py --preview) ---------- */
 .proto-banner { background: #FEF3C7; color: #78350F; border-bottom: 1px solid #F3D9A4; font-size: .875rem; line-height: 1.4; padding: 8px var(--space-md); text-align: center; }

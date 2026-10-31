@@ -71,12 +71,18 @@
     form.addEventListener('submit', function (e) {
       e.preventDefault();
       var status = document.getElementById('status');
-      if (!form.name.value.trim() || !form.email.checkValidity() || !form.email.value) {
-        status.hidden = false;
-        status.textContent = 'Please add your name and a valid work email so we can reply.';
-        (form.name.value.trim() ? form.email : form.name).focus();
-        return;
-      }
+      // Errors appear under the field that needs fixing; focus moves to the first one.
+      var problems = [];
+      var check = function (field, ok, msg) {
+        var err = document.getElementById(field.id + '-err');
+        err.hidden = ok; err.textContent = ok ? '' : msg;
+        field.setAttribute('aria-invalid', ok ? 'false' : 'true');
+        if (!ok) problems.push(field);
+      };
+      check(form.name, !!form.name.value.trim(), 'Add your name so we know who to reply to.');
+      check(form.email, !!form.email.value && form.email.checkValidity(), 'Enter a work email, like name@company.com.');
+      status.hidden = true;
+      if (problems.length) { problems[0].focus(); return; }
       if (document.body.getAttribute('data-preview')) {
         status.hidden = false;
         status.textContent = 'This is a design prototype, so the message was not sent. To reach The Quest Team, call 408.261.3484 or email admin@questteam.com.';

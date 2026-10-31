@@ -6,6 +6,10 @@
 <title>Contact | The Quest Team</title>
 <meta name="description" content="Leading-edge corporate training programs for sales, marketing, and account team personnel, including Fundamentals of Product Marketing for the Semiconductor Industry 3.0.">
 <meta name="robots" content="noindex, nofollow">
+<meta property="og:type" content="website"><meta property="og:site_name" content="The Quest Team">
+<meta property="og:title" content="Contact | The Quest Team"><meta property="og:description" content="Leading-edge corporate training programs for sales, marketing, and account team personnel.">
+<meta property="og:image" content="https://junllu.github.io/questteam-redesign/assets/img/og/preview/home.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:url" content="https://junllu.github.io/questteam-redesign/contact.html"><meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="assets/img/site/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Fira+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap">
@@ -17,12 +21,12 @@
 <header class="site-header">
   <div class="wrap">
     <a class="brand" href="index.html" aria-label="The Quest Team, home"><img src="assets/img/site/quest_logo_300x130.png" alt="The Quest Team, Inc." width="300" height="150"><span>Sales &amp; marketing training</span></a>
-    <nav class="nav-desktop" aria-label="Primary"><ul><li><a href="courses/index.html">Courses</a></li><li><a href="for-teams.html">For Teams</a></li><li><a href="insights/index.html">Insights</a></li><li><a href="instructors/index.html">Instructors</a></li><li><a href="about.html">About</a></li><li><a href="contact.html" aria-current="page">Contact</a></li></ul></nav>
-    <a class="signin" href="#" aria-disabled="true" data-disabled title="Disabled in this design prototype">Sign in</a>
+    <nav class="nav-desktop" aria-label="Primary"><ul><li><a href="courses/index.html">Courses</a></li><li><a href="for-teams.html">For Teams</a></li><li><a href="insights/index.html">Knowledge Center</a></li><li><a href="instructors/index.html">Instructors</a></li><li><a href="about.html">About</a></li><li><a href="contact.html" aria-current="page">Contact</a></li></ul></nav>
+    <a class="signin" href="#" aria-disabled="true" data-disabled title="Disabled in this design prototype">Member sign-in</a>
     <a class="btn btn-primary header-cta" href="courses/index.html">View courses</a>
     <details class="menu">
       <summary aria-label="Open menu"><svg aria-hidden="true" class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="18" y2="18"/></svg><span>Menu</span></summary>
-      <nav class="menu-panel" aria-label="Mobile"><ul><li><a href="courses/index.html">Courses</a></li><li><a href="for-teams.html">For Teams</a></li><li><a href="insights/index.html">Insights</a></li><li><a href="instructors/index.html">Instructors</a></li><li><a href="about.html">About</a></li><li><a href="contact.html" aria-current="page">Contact</a></li><li><a href="#" aria-disabled="true" data-disabled title="Disabled in this design prototype">Member sign in</a></li></ul>
+      <nav class="menu-panel" aria-label="Main menu"><ul><li><a href="courses/index.html">Courses</a></li><li><a href="for-teams.html">For Teams</a></li><li><a href="insights/index.html">Knowledge Center</a></li><li><a href="instructors/index.html">Instructors</a></li><li><a href="about.html">About</a></li><li><a href="contact.html" aria-current="page">Contact</a></li><li><a href="#" aria-disabled="true" data-disabled title="Disabled in this design prototype">Member sign-in</a></li></ul>
         <a class="btn btn-primary btn-block" href="courses/index.html">View courses</a></nav>
     </details>
   </div>
@@ -34,17 +38,18 @@
 <form class="form" id="contact" novalidate style="margin-top:24px">
   <fieldset class="field radios" style="margin:0"><legend>I'm asking about</legend>
     <label><input type="radio" name="topic" value="enroll" checked> Registering for an open-enrollment class</label>
-    <label><input type="radio" name="topic" value="notify"> Upcoming class dates</label>
+    <label><input type="radio" name="topic" value="notify"> Next class dates</label>
     <label><input type="radio" name="topic" value="inhouse"> In-house or team training</label>
     <label><input type="radio" name="topic" value="other"> Something else</label></fieldset>
   <div class="field"><label for="course">Course</label><select id="course" name="course"><option value="">Not sure yet</option><option value="FPM 3.0">Fundamentals of Product Marketing 3.0</option><option value="CASCM">Combating Aggressive Supply Chain Management</option><option value="KSM">Key Semiconductor Account Selling and Management</option></select></div>
-  <div class="field-row"><div class="field"><label for="name">Full name</label><input id="name" name="name" autocomplete="name" required></div>
+  <div class="field-row"><div class="field"><label for="name">Full name</label><input id="name" name="name" autocomplete="name" required aria-describedby="name-err"><p class="field-error" id="name-err" hidden></p></div>
   <div class="field"><label for="company">Company</label><input id="company" name="company" autocomplete="organization"></div></div>
-  <div class="field-row"><div class="field"><label for="email">Work email</label><input id="email" name="email" type="email" autocomplete="email" inputmode="email" required></div>
+  <div class="field-row"><div class="field"><label for="email">Work email</label><input id="email" name="email" type="email" autocomplete="email" inputmode="email" required aria-describedby="email-err"><p class="field-error" id="email-err" hidden></p></div>
   <div class="field"><label for="phone">Phone <span class="hint">(optional)</span></label><input id="phone" name="phone" type="tel" autocomplete="tel" inputmode="tel"></div></div>
   <div class="field" data-show="inhouse"><label for="size">Team size</label><input id="size" name="size" inputmode="numeric" placeholder="e.g. 12"></div>
   <div class="field"><label for="msg">Message</label><textarea id="msg" name="msg"></textarea></div>
-  <button class="btn btn-primary" type="submit">Send message <svg aria-hidden="true" class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></button>
+  <button class="btn btn-primary" type="submit">Open in my email <svg aria-hidden="true" class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></button>
+  <p class="hint" style="margin:-4px 0 0">Opens your email app with this message filled in, ready to send to The Quest Team.</p>
   <p class="form-status" id="status" hidden></p>
   <p class="hint muted" style="font-size:.875rem">Prototype form: on launch this connects to your email or CRM, with invisible spam protection instead of a math question.</p>
 </form></div>
